@@ -4,4 +4,4 @@ date2 = codes[1][1:7]
 date3 = codes[2][1:7]
 date4 = codes[3][1:7]
 date5 = codes[4][1:7]
-if
+print(date2)
