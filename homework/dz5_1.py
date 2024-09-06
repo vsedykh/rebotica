@@ -5,4 +5,5 @@ qwerty = {
     "Ъкенгцыий" : ["+5 678 23-41-43","+658754 58 556"],
 }
 print("введите фамилию:")
-input()
+name = input()
+print(qwerty[name])
