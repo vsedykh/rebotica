@@ -1,4 +1,8 @@
 du = ["Дарья","Юра","Платон","Валерий"]
-for warp in du:
-    print(warp, len(warp))
+warp = len (du[0])
+for y in du:
+    y = len(y)
+    if y < warp:
+        warp = y
+print(warp)
 
