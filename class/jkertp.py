@@ -1,7 +1,7 @@
-wedsa = int(input("сколько ехать:"))
-rsu = 0
-while  rsu != wedsa:
-    if rsu % 5 ==0:
-        print(f'мы проехали {rsu} km.нам осталось ехать {wedsa-rsu} km.')
-    rsu+=1
-print("мы приехали. пройдено %s km"  % rsu)
+rt = []
+while True:
+    q = int(input("введите число:"))
+    if q == 0:
+        break
+    rt.append(q)
+print(f'минимальное число:{min(rt)}')
