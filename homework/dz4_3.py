@@ -3,4 +3,5 @@ print(codes[0][0])
 print(codes[1][0])
 print(codes[2][0])
 print(codes[3][0])
-print(codes[4][0])
+print(codes
+      )
