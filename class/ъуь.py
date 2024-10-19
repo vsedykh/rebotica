@@ -1,0 +1,13 @@
+import turtle
+e = turtle.Pen()
+e.color("red")
+e.pensize(3)
+e.forward(100)
+e.left(90)
+e.forward(100)
+e.left(90)
+e.forward(100)
+e.left(90)
+e.forward(100)
+e.left(90)
+turtle.mainloop()
