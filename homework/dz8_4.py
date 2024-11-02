@@ -1,6 +1,6 @@
 import turtle
 x = turtle.Pen()
-x.color("red")
+x.color("blue")
 x.speed(0)
 length = 1
 heading = 0
