@@ -12,7 +12,8 @@ def chose(input):
     global stateeeeeee
     stateeeeeee = input
 def paint(event):
-    if event.widget.__class__:
+    if event.widget.__class__!=callllllllllvas.__class__:
+        return
     if stateeeeeee=="s":
         callllllllllvas.create_rectangle(event.x - brush, event.y - brush, event.x + brush, event.y + brush, fill=color,outline=color)
     elif stateeeeeee=="c":
