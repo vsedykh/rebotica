@@ -1,15 +1,24 @@
 from tkinter import *
+from tkinter.colorchooser import *
 tkck = Tk()
 tkck.geometry("1800x800")
 tkck.title("Alle")
 tkck["bg"] = "red"
-callllllllllvas = Canvas(tkck,width=540,height=400,bg="white")
+callllllllllvas = Canvas(tkck,width=1600,height=400,bg="white")
 callllllllllvas.grid(row= 0,column= 0,rowspan= 7)
 stateeeeeee = "c"
 brush = 10
 color = "red"
 def chose(input):
-    global stateeeeeee
+    global stateeeeeee, brush
+    if input=="+" and brush<1000000000000000:
+        brush += 2
+        label.configure(text=brush)
+        return
+    if input=="-" and brush>0:
+        brush -= 2
+        label.configure(text=brush)
+        return
     stateeeeeee = input
 def paint(event):
     if event.widget.__class__!=callllllllllvas.__class__:
@@ -23,8 +32,27 @@ def paint(event):
     elif stateeeeeee=="l2":
         callllllllllvas.create_line(event.x + brush, event.y - brush, event.x - brush, event.y + brush, fill=color)
 
-    print(event.__dict__)
+def ask__color(event):
+    tkck.bind_all("<c>", )
+    global color
+    fdhzgs= askcolor(title="выберите цвет")
+    color =fdhzgs[1]
+    return
+
+def clear(event):
+    tkck.bind_all("<BackSpace>", callllllllllvas.delete("all"))
+    return
+
 tkck.bind_all("<1>", paint)
+tkck.bind_all("<B1-Motion>", paint)
+tkck.bind_all("<BackSpace>", clear)
+tkck.bind_all("<c>", ask__color)
+
+def fg (event):
+    callllllllllvas.create_oval(event.x - brush*2, event.y - brush*2, event.x + brush*2, event.y + brush*2, fill="white",outline="white")
+    return
+tkck.bind_all("<3>", fg)
+tkck.bind_all("<B3-Motion>", fg)
 
 btn1 = Button(tkck, text="🟥", font=(None, 20),command=lambda: chose("s"))
 btn1.grid(row=0,column=1)
