@@ -54,8 +54,8 @@ def fg (event):
 tkck.bind_all("<3>", fg)
 tkck.bind_all("<B3-Motion>", fg)
 
-btn1 = Button(tkck, text="🟥", font=(None, 20),command=lambda: chose("s"))
-btn1.grid(row=0,column=1)
+btn = Button(tkck, text="🟥", font=(None, 20),command=lambda: chose("s"))
+btn.grid(row=0,column=1)
 btn2 = Button(tkck, text="🔴", font=(None, 20),command=lambda: chose("c"))
 btn2.grid(row=1,column=1)
 btn3 = Button(tkck, text=" ↘ ", font=(None, 20),command=lambda: chose("l1"))
