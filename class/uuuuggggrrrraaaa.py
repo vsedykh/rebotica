@@ -8,6 +8,10 @@ class Geroy:
         self.level = 1
         self.XP = 0
         self.heals = 0
+
+
+
+
     def attack(self,victim):
         victim.hearts -= self.yorn
         print(f' вы нанесли врагу {self.yorn} урона у врага осталось {victim.hearts} здоровья')
@@ -22,6 +26,10 @@ class Geroy:
                 self.XP -= 500
                 self.yorn *= 1.5
                 print(f"у вас теперь {self.yorn} урона")
+            chanse = random.randint(0,1)
+            if chanse == 1:
+                self.heals += 1
+                print(f"вы получили 1 аптечку у вас теперь {self.heals} аптечек.")
             return False
         else:
             return True
@@ -31,18 +39,24 @@ class Vragu:
         "zombie" : (67,90),
         "banana-woman" : (344,123),
         "amongasek" : (78,90),
-        "minotavar" : (89,156)
+        "minotavar" : (89,156),
+        "terminator 3000" : (1800,2673)
     }
     def __init__(self):
         self.nabu = random.choice(list(self.qwer.keys()))
         self.hearts = self.qwer[self.nabu][1]
         self.yorn = self.qwer[self.nabu][0]
         self.XP = self.hearts*1.5
+
+
+
+
     def attack2(self, victim):
         victim.hearts -= self.yorn
         print(f' вам нанесли  {self.yorn} урона. У вас осталось {victim.hearts} здоровья')
         if victim.hearts <= 0:
-            exit(print(f"wasted"))
+            exit(print("wasted"))
+
 
 def kreate_нero(nabu,rasa,propheseya):
     sdoroBye = uiop[rasa][0]+ qa4wjky[propheseya][0]
@@ -50,25 +64,45 @@ def kreate_нero(nabu,rasa,propheseya):
     wsdda = Geroy(nabu,sdoroBye,uron)
     return wsdda
 
-def start():
-    ee = Vragu()
+
+
+def start(heal = None):
+    if heal is None:
+        ee = Vragu()
+    else:
+        ee = heal
     print(f"вам повстречался {ee.nabu} с {ee.hearts} Хп и с {ee.yorn} уроном.")
-    print("драться или сбежать.")
+    print("драться, сбежать или лекаться.")
     defgt = input("-> ").lower()
     if defgt == "драться":
         fight(ee)
+    elif defgt == "лекаться":
+        if we.heals > 0:
+            we.hearts += 75
+            we.heals -= 1
+
+            if we.level == 20:
+                ee.nabu = "terminator 3000"
+            if defgt == "сбежать":
+                if ee.nabu == "terminator 3000":
+                    print("Вы не можете сбежать потому-что это БОСС!!!!!!!")
+
+            print(f"Вы полекались ваше здоровье теперь = {we.hearts} XP :D. У вас осталось {we.heals}")
+        else:
+            print("нет хилок :(")
+        start(ee)
     else:
         random_randint = random.randint(0,100)
-
-        if random_randint in range(51):
+        if ee.nabu != "terminator 3000":
+            if random_randint in range(51):
                 print("Вы успешно сбежали")
                 time.sleep(2)
                 start()
-        if random_randint not in range(51):
-            print("Вы не сбежали")
-            time.sleep(2)
-            ee.attack2(we)
-            fight(ee)
+            if random_randint not in range(51):
+                print("Вы не сбежали")
+                time.sleep(2)
+                ee.attack2(we)
+                fight(ee)
 def fight(victim):
     they = we.attack(victim)
     time.sleep(1)
@@ -88,7 +122,7 @@ uiop =  {
     "зерг" : (110,30),
     "марсианин" : (160,50),
     "зибройд" : (100,70),
-    "B - bot" : (123,234)
+    "b - bot" : (123,234)
 }
 qa4wjky = {
     "врач" : (90,70),
