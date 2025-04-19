@@ -5,7 +5,7 @@ class Geroy:
         self.nabu = nabu
         self.hearts = hearts
         self.yorn = yorn
-        self.level = 1
+        self.level = 20
         self.XP = 0
         self.heals = 0
 
@@ -40,7 +40,7 @@ class Vragu:
         "banana-woman" : (344,123),
         "amongasek" : (78,90),
         "minotavar" : (89,156),
-        "terminator 3000" : (1800,2673)
+        "terminator 3000" : (230,2673)
     }
     def __init__(self):
         self.nabu = random.choice(list(self.qwer.keys()))
@@ -48,8 +48,11 @@ class Vragu:
         self.yorn = self.qwer[self.nabu][0]
         self.XP = self.hearts*1.5
 
-
-
+    def boss (self):
+        self.nabu = "terminator 3000"
+        self.hearts = 2673
+        self.yorn = 230
+        self.XP = self.hearts * 1.5
 
     def attack2(self, victim):
         victim.hearts -= self.yorn
@@ -67,10 +70,14 @@ def kreate_нero(nabu,rasa,propheseya):
 
 
 def start(heal = None):
+
     if heal is None:
         ee = Vragu()
+        if we.level == 20:
+            ee.boss()
     else:
         ee = heal
+
     print(f"вам повстречался {ee.nabu} с {ee.hearts} Хп и с {ee.yorn} уроном.")
     print("драться, сбежать или лекаться.")
     defgt = input("-> ").lower()
@@ -81,11 +88,6 @@ def start(heal = None):
             we.hearts += 75
             we.heals -= 1
 
-            if we.level == 20:
-                ee.nabu = "terminator 3000"
-            if defgt == "сбежать":
-                if ee.nabu == "terminator 3000":
-                    print("Вы не можете сбежать потому-что это БОСС!!!!!!!")
 
             print(f"Вы полекались ваше здоровье теперь = {we.hearts} XP :D. У вас осталось {we.heals}")
         else:
@@ -103,6 +105,9 @@ def start(heal = None):
                 time.sleep(2)
                 ee.attack2(we)
                 fight(ee)
+        else:
+            print("Вы не можете сбежать потому-что это БОСС!!!!!!!")
+            fight(ee)
 def fight(victim):
     they = we.attack(victim)
     time.sleep(1)
