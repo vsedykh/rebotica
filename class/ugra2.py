@@ -26,15 +26,42 @@ class Gamer1(Gamer):
         self.speeeeeeeeed = 3
     def movi_drs(self,event):
         if event.keysym == "w":
-
+            self.sonik2y = - self.speeeeeeeeed
+        if event.keysym == "s":
+            self.sonik2y = self.speeeeeeeeed
+    def anti_movi_drs(self,event):
+        if event.keysym in "ws":
+            self.sonik2y = 0
 class Gamer2(Gamer):
     def __init__(self):
         super().__init__()
         self.id = calnmas.create_rectangle(780, 10, 790, 90, fill="red")
         self.sonik2y = 0
         self.speeeeeeeeed = 3
-c1 = Gamer1
-c2 = Gamer2
+
+    def movi_drs2(self,event):
+        if event.keysym == "Up":
+            self.sonik2y = - self.speeeeeeeeed
+        if event.keysym == "Down":
+            self.sonik2y = self.speeeeeeeeed
+    def anti_movi_drs2(self,event):
+        if event.keysym in ["Up","Down"]:
+            self.sonik2y = 0
+c1 = Gamer1()
+c2 = Gamer2()
+jd.bind_all("<w>")
+jd.bind_all("<s>")
+jd.bind_all("<Up>")
+jd.bind_all("<Down>")
+
+
+class Balllllllllllllllllllllllllllllllllll:
+    def __init__(self):
+        super().__init__()
+        self.id2 = calnmas.create_oval(456,90,90,456,fill="red")
+        self.sonik2y = None
+        self.speeeeeeeeed = 3
+c3 = Balllllllllllllllllllllllllllllllllll()
 while True:
     jd.update()
     jd.update_idletasks()
