@@ -5,7 +5,7 @@ class Geroy:
         self.nabu = nabu
         self.hearts = hearts
         self.yorn = yorn
-        self.level = 20
+        self.level = 1
         self.XP = 0
         self.heals = 0
 
@@ -40,7 +40,6 @@ class Vragu:
         "banana-woman" : (344,123),
         "amongasek" : (78,90),
         "minotavar" : (89,156),
-        "terminator 3000" : (230,2673)
     }
     def __init__(self):
         self.nabu = random.choice(list(self.qwer.keys()))

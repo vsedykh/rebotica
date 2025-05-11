@@ -2,10 +2,10 @@ from tkinter import *
 import time
 
 jd = Tk()
-jd.geometry("800x600")
+jd.geometry("2585x1800")
 jd.title("PONG")
 
-calnmas = Canvas(jd, width=800, height=600, bg="black")
+calnmas = Canvas(jd, width=2585, height=1800, bg="black")
 calnmas.pack()
 
 class Gamer:
@@ -14,7 +14,7 @@ class Gamer:
         self.sonik2y = None
     def draw (self):
         _,r, _, y = calnmas.coords(self.id)
-        if r <= 0 or y >= 600:
+        if r <= 0 or y >= 1800:
             self.sonik2y = 0
         else:
             calnmas.move(self.id, 0, self.sonik2y)
@@ -49,10 +49,10 @@ class Gamer2(Gamer):
             self.sonik2y = 0
 c1 = Gamer1()
 c2 = Gamer2()
-jd.bind_all("<w>")
-jd.bind_all("<s>")
-jd.bind_all("<Up>")
-jd.bind_all("<Down>")
+jd.bind_all("<KeyPress>",c1.movi_drs)
+jd.bind_all("<KeyPress>",c2.movi_drs2,add="+")
+jd.bind_all("<KeyRelease>",c1.anti_movi_drs)
+jd.bind_all("<KeyRelease>",c2.anti_movi_drs2,add="+")
 
 
 class Balllllllllllllllllllllllllllllllllll:
@@ -65,4 +65,6 @@ c3 = Balllllllllllllllllllllllllllllllllll()
 while True:
     jd.update()
     jd.update_idletasks()
+    c1.draw()
+    c2.draw()
     time.sleep(0.01)
