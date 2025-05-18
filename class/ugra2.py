@@ -2,10 +2,10 @@ from tkinter import *
 import time
 
 jd = Tk()
-jd.geometry("2585x1800")
+jd.geometry("1080x800")
 jd.title("PONG")
 
-calnmas = Canvas(jd, width=2585, height=1800, bg="black")
+calnmas = Canvas(jd, width=1080, height=800, bg="black")
 calnmas.pack()
 
 class Gamer:
@@ -46,7 +46,7 @@ class Gamer2(Gamer):
             self.sonik2y = self.speeeeeeeeed
     def anti_movi_drs2(self,event):
         if event.keysym in ["Up","Down"]:
-            self.sonik2y = 0
+            self.sonik2y = 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 c1 = Gamer1()
 c2 = Gamer2()
 jd.bind_all("<KeyPress>",c1.movi_drs)
@@ -58,13 +58,33 @@ jd.bind_all("<KeyRelease>",c2.anti_movi_drs2,add="+")
 class Balllllllllllllllllllllllllllllllllll:
     def __init__(self):
         super().__init__()
-        self.id2 = calnmas.create_oval(456,90,90,456,fill="red")
-        self.sonik2y = None
+        self.id2 = calnmas.create_oval(40,20,70,50,fill="red")
+        self.sonik2y = 3
         self.speeeeeeeeed = 3
+    def draw(self):
+        calnmas.move(self.id2, self.speeeeeeeeed, self.sonik2y)
+        e, r, t, y = calnmas.coords(self.id2)
+        if r <= 0 or y >= 800:
+            self.sonik2y = - self.sonik2y
+        if e <= 0 or t >= 1080:
+            self.speeeeeeeeed = - self.speeeeeeeeed
+        q, w ,u ,j = calnmas.coords(c1.id)
+        m, i, o, p = calnmas.coords(c2.id)
+        if r > w and y < j and e <= u:
+            self.speeeeeeeeed -= 10.25
+            self.speeeeeeeeed = - self.speeeeeeeeed
+
+        if r > i and y < p and t >= m:
+            self.speeeeeeeeed += 10.25
+            self.speeeeeeeeed = - self.speeeeeeeeed
 c3 = Balllllllllllllllllllllllllllllllllll()
+
+
 while True:
     jd.update()
     jd.update_idletasks()
     c1.draw()
     c2.draw()
+    c3.draw()
     time.sleep(0.01)
+
