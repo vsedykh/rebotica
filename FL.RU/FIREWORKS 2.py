@@ -16,6 +16,8 @@ i.goto(random.randint(-500,500),-390)
 i.down()
 i.left(90)
 
+turtle.tracer(1,0)
+
 def fill():
     c = ["red","orange","yellow","green","blue","purple"]
     i.begin_fill()
@@ -33,7 +35,6 @@ while True:
         i.up()
         i.forward(6)
         i.down()
-    i.clear()
     fill()
     i.up()
     i.goto(random.randint(-500,500),-390)
