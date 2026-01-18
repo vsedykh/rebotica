@@ -1,6 +1,8 @@
 import pyautogui
 import time
 
-while True:
+def position():
     print(pyautogui.position())
     time.sleep(1)
+while True:
+    position()
